@@ -118,12 +118,12 @@ export default function HomeScreen(props) {
           autoCapitalize="none"
         />
 
-        {/* <TextInput
+        <TextInput
           style={styles.input}
           placeholder="Debtor Name"
           onChangeText={onChangeDebtorName}
         />
-        <TextInput
+        {/* <TextInput
           style={styles.input}
           placeholder="Debt Amount"
           onChangeText={(value) => {
