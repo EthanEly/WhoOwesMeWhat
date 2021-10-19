@@ -52,33 +52,13 @@ export default function HomeScreen(props) {
       );
   }, []);
 
-  const onAddButtonPress = () => {
-    if (entityText && entityText.length > 0) {
-      const timestamp = firebase.firestore.FieldValue.serverTimestamp();
-      const data = {
-        debtorName: debtorName,
-        debtorAmount: debtorAmount,
-        debtorDate: debtorDate,
-        authorID: userID,
-        createdAt: timestamp,
-      };
-      entityRef
-        .add(data)
-        .then((_doc) => {
-          setEntityText("");
-          Keyboard.dismiss();
-        })
-        .catch((error) => {
-          alert(error);
-        });
-    }
-  };
-
   // const onAddButtonPress = () => {
   //   if (entityText && entityText.length > 0) {
   //     const timestamp = firebase.firestore.FieldValue.serverTimestamp();
   //     const data = {
-  //       text: entityText,
+  //       debtorName: debtorName,
+  //       debtorAmount: debtorAmount,
+  //       debtorDate: debtorDate,
   //       authorID: userID,
   //       createdAt: timestamp,
   //     };
@@ -93,6 +73,26 @@ export default function HomeScreen(props) {
   //       });
   //   }
   // };
+
+  const onAddButtonPress = () => {
+    if (entityText && entityText.length > 0) {
+      const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+      const data = {
+        text: entityText,
+        authorID: userID,
+        createdAt: timestamp,
+      };
+      entityRef
+        .add(data)
+        .then((_doc) => {
+          setEntityText("");
+          Keyboard.dismiss();
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    }
+  };
 
   const renderEntity = ({ item, index }) => {
     return (

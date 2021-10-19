@@ -42,16 +42,13 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={user ? 'Home' : 'Login'}>
-        {/* {user ? ( */}
-          <Stack.Screen name="Home">
-            {(props) => <HomeScreen {...props} extraData={user} />}
-          </Stack.Screen>
-        {/* ) : ( */}
           <>
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Registration" component={RegistrationScreen} />
           </>
-        {/* )} */}
+          <Stack.Screen name="Home">
+            {(props) => <HomeScreen {...props} extraData={user} />}
+          </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
